@@ -2,7 +2,7 @@
 from marshmallow import Schema, fields, validate
 
 # define list of valid vields
-VALID_CMD = ('filter', 'map', 'sort', 'limit', 'unique')
+VALID_CMD = ('filter', 'map', 'sort', 'limit', 'unique', 'regex')
 
 
 # creating schema according to required form

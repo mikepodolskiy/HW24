@@ -1,8 +1,12 @@
+# import required libraries and modules
+import re
+
+
 # reading file using generator
-def read_file(filepath):
-    with open(filepath, mode='r', encoding='UTF-8') as file:
-        for line in file:
-            yield line
+# def read_file(filepath):
+#     with open(filepath, mode='r', encoding='UTF-8') as file:
+#         for line in file:
+#             yield line
 
 
 # filtering data by value consistence
@@ -31,6 +35,18 @@ def limit_data(data, value):
 
 
 # showing only unique data
-# args, kwargs добавляются чтобы соблюсти единообразие аргументов используемых функций
+# args, kwargs added to keep arguments the same in all funcs (for validation)
 def unique_data(data, *args, **kwargs):
     return set(data)
+
+
+# def find_date(txt):
+#
+#     return re.findall(rf"'{value}'", txt)
+
+# def filter_data(data, value):
+#     return filter(lambda x: value in x, data)
+
+def regex_data_filter(data, value):
+
+    return filter(lambda x: re.search(value, x), data)

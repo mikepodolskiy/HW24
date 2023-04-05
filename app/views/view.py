@@ -2,7 +2,7 @@
 from flask import request, Blueprint, jsonify
 from marshmallow import ValidationError
 
-from app.funcs.functions import filter_data, map_data, read_file, sort_data, limit_data, unique_data
+from app.funcs.functions import filter_data, map_data, sort_data, limit_data, unique_data
 from app.builder import build_query
 from app.model.model import RequestSchema, BatchRequestSchema
 
@@ -41,7 +41,7 @@ def perform_query():
     #                      file_name=req_data['file_name'],
     #                      data=first_result)
 
-    # below my code, which i sent to check
+    # below my code, which I'd sent to check
 
     # check received data, applying relative function, forming data
     # if req_data['cmd1'] == 'filter':
