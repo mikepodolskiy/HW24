@@ -1,0 +1,20 @@
+запрос для postman
+
+
+{
+  "file_name": "data/apache_logs.txt",
+  "queries": [
+      {
+          "cmd": "filter",
+          "value": "POST"
+      },
+      {
+          "cmd": "map",
+          "value": "0"
+      },
+      {
+          "cmd": "limit",
+          "value": "5"
+      }
+      ]
+}
