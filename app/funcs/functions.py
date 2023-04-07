@@ -1,52 +1,39 @@
 # import required libraries and modules
 import re
-
-
-# reading file using generator
-# def read_file(filepath):
-#     with open(filepath, mode='r', encoding='UTF-8') as file:
-#         for line in file:
-#             yield line
+from typing import Iterable, Iterator
 
 
 # filtering data by value consistence
-def filter_data(data, value):
+def filter_data(data: Iterable[str], value: str) -> Iterator[str]:
     return filter(lambda x: value in x, data)
 
 
 # output one col acc to col number
-def map_data(data, value):
+def map_data(data: Iterable[str], value: str) -> Iterator[str]:
     col = int(value)
     return map((lambda line: line.split(' ')[col]), data)
 
 
 # sorting data asc or desc form value argument
-def sort_data(data, value):
-    if value == 'asc':
-        return sorted(data, reverse=False)
+def sort_data(data: Iterable[str], value: str) -> list[str]:
     if value == 'desc':
-        return sorted(data, reverse=True)
+        reverse = True
+    else:
+        reverse = False
+    return sorted(data, reverse=reverse)
 
 
 # limiting data to show
-def limit_data(data, value):
+def limit_data(data: Iterable[str], value: str) -> list[str]:
     limit = int(value)
     return list(data)[:limit]
 
 
 # showing only unique data
 # args, kwargs added to keep arguments the same in all funcs (for validation)
-def unique_data(data, *args, **kwargs):
+def unique_data(data: Iterable[str], *args: str, **kwargs: str) -> set[str]:
     return set(data)
 
 
-# def find_date(txt):
-#
-#     return re.findall(rf"'{value}'", txt)
-
-# def filter_data(data, value):
-#     return filter(lambda x: value in x, data)
-
-def regex_data_filter(data, value):
-
+def regex_data_filter(data: Iterable[str], value: str) -> Iterator[str]:
     return filter(lambda x: re.search(value, x), data)
